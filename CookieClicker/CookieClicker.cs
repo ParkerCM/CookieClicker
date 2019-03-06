@@ -10,18 +10,22 @@ namespace CookieClicker
 {
     class CookieClicker
     {
+        private readonly IWebDriver Driver = new ChromeDriver();
         private readonly String COOKIE = "//*[@id='bigCookie']";
 
         public CookieClicker()
         {
             GoToURL();
+            ClickCookiesTestMethod();
         }
 
         void GoToURL()
         {
-            IWebDriver Driver = new ChromeDriver();
             Driver.Navigate().GoToUrl("http://orteil.dashnet.org/cookieclicker/");
+        }
 
+        void ClickCookiesTestMethod()
+        {
             var cookie = Driver.FindElement(By.XPath(this.COOKIE));
 
             while (true)
